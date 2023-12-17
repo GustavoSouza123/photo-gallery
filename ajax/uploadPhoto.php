@@ -2,12 +2,12 @@
     require '../config/config.php';
     $data = [];
 
-    $uploadDir = '../assets/photos/';
+    $uploadDir = 'assets/photos/';
     $image = $uploadDir.basename($_FILES['photo']['name']);
     $imageTmpName = $_FILES['photo']['tmp_name'];
     $creationDate = date("Y-m-d H:i:s");
 
-    if(move_uploaded_file($imageTmpName, $image)) {
+    if(move_uploaded_file($imageTmpName, '../'.$image)) {
         $data['success'] = true;
     } else {
         $data['success'] = false;
