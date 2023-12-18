@@ -2,7 +2,7 @@
     require '../config/config.php';
     $data = [];
 
-    $sql = $pdo->prepare("SELECT * FROM `photos`");
+    $sql = $pdo->prepare("SELECT * FROM `photos` ORDER BY creation_date DESC");
     $sql->execute();
     if($sql->rowCount() > 0) {
         $data['photos'] = $sql->fetchAll(PDO::FETCH_ASSOC);
