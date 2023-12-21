@@ -18,11 +18,6 @@
         <section>
             <div class="gallery"></div>
         </section>
-
-        <div class="add-photo">
-            <label for="photo">+</label>
-            <input type="file" name="photo" id="photo" accept=".jpg, .jpeg, .png" />
-        </div>
     </main>
 
     <footer>

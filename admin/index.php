@@ -1,6 +1,13 @@
 <?php
     require '../config/config.php';    
 
+    if(isset($_POST['login'])) {
+        if($_POST['username'] != '' && $_POST['password'] != '') {
+            $_SESSION['gallery-username'] = $_POST['username'];
+            $_SESSION['gallery-password'] = $_POST['password'];
+        }
+    }
+
     // deleting row
     if(isset($_GET['delete']) && $_GET['delete'] != null) {
         try {
@@ -41,14 +48,44 @@
     <title>Photo Gallery</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" /> <!-- fancybox css file -->
     <link href="style.css" rel="stylesheet" /> <!-- main css file -->
 </head>
 <body>
+    <?php
+        if(!isset($_SESSION['gallery-username']) || !isset($_SESSION['gallery-password']) || $_SESSION['gallery-username'] != 'admin' || $_SESSION['gallery-password'] != '1234') {
+    ?>
+
+    <header>
+        <h1>Login</h1>
+    </header>
+
+    <div class="login">
+        <form method="post" action="">
+            <input type="text" name="username" placeholder="username" />
+            <input type="password" name="password" placeholder="password" />
+            <input type="submit" name="login" value="Login" />
+        </form>
+    </div>
+
+    <?php } else { ?>
+
+    <header>
+        <h1>Admin Panel</h1>
+    </header>
+
     <div class="admin-panel">
         <?= $photos ?>
-        <a href="../">Back to photo gallery</a>
+        <div class="add-photo">
+            <label for="photo">+</label>
+            <input type="file" name="photo" id="photo" accept=".jpg, .jpeg, .png" />
+        </div>
+        <div class="links">
+            <a href="../">Back to photo gallery</a>
+            <a href="">Logout</a>
+        </div>
     </div>
+
+    <?php } ?>
 
     <footer>
         © 2023 Gustavo Souza
