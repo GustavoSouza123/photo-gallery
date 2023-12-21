@@ -1,6 +1,17 @@
 <?php
     require '../config/config.php';    
-    
+
+    // deleting row
+    if(isset($_GET['delete']) && $_GET['delete'] != null) {
+        try {
+            $sql = $pdo->prepare("DELETE FROM `photos` WHERE id = ?");
+            $sql->execute(array($_GET['delete']));
+        } catch(PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    // displaying table `photos` data
     try {
         $sql = $pdo->prepare("SELECT * FROM `photos`");
         $sql->execute();
@@ -10,9 +21,12 @@
             // echo '</pre>';
             $rows = $sql->fetchAll(PDO::FETCH_ASSOC);
             $photos = '';
+            $photos .= '<table>';
+            $photos .= '<tr><th>id</th><th>photo</th><th>creation_date</th><th>action</th></tr>';
             foreach($rows as $key => $value) {
-                $photos .= '<div class="photo"><div class="column">id</div>:'.$value['id'].'; <div class="column">photo</div>:'.$value['photo'].'; <div class="column">creation_date</div>:'.$value['creation_date'].'</div>';
+                $photos .= '<tr><td>'.$value['id'].'</td><td>'.$value['photo'].'</td><td>'.$value['creation_date'].'</td><td class="delete"><a href="?delete='.$value['id'].'">delete</a></td></tr>';
             }
+            $photos .= '</table>';
         } else {
             $photos = 'No uploaded photos';
         }
@@ -33,6 +47,7 @@
 <body>
     <div class="admin-panel">
         <?= $photos ?>
+        <a href="../">Back to photo gallery</a>
     </div>
 
     <footer>
