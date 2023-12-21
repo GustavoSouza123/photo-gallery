@@ -15,7 +15,7 @@
     try {
         $sql = $pdo->prepare("SELECT * FROM `photos`");
         $sql->execute();
-        if($sql->rowCount() > 1) {
+        if($sql->rowCount() > 0) {
             // echo '<pre>';
             // print_r($sql->fetchAll(PDO::FETCH_ASSOC));
             // echo '</pre>';
