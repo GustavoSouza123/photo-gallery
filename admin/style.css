@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #fcfcfc;
+}
+
+
+.admin-panel {
+    padding: 30px;
+}
+
+.photo {
+    padding: 10px;
+    transition: .2s;
+}
+
+.photo:nth-child(even) {
+    background: #eee;
+}
+
+.photo:hover {
+    background: #eee;
+}
+
+.photo .column {
+    display: inline-block;
+    font-weight: bold;
+}
+
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 80px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer {
+    font-size: 14px;
+    border-top: 1px solid #eee;
+}
