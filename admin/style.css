@@ -83,12 +83,15 @@ footer {
 }
 
 table {
-    margin-bottom: 40px;
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    margin-bottom: 70px;
+    border-collapse: collapse;
 }
 
-table, th, td {
+th, td {
     border: 1px solid #ccc;
-    border-collapse: collapse;
     padding: 5px;
 }
 
