@@ -24,9 +24,45 @@ header {
     border-bottom: 1px solid #eee;
 }
 
+header .content {
+    position: relative;
+    width: 100%;
+    max-width: 1440px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 header h1 {
     font-weight: 400;
     font-size: 28px;
+}
+
+header .admin {
+    position: absolute;
+    right: 30px;
+    width: 80px;
+    height: 40px;
+    cursor: pointer;
+    background-color: #eee;
+    border-radius: 5px;
+    transition: .2s;
+}
+
+header .admin:hover {
+    background-color: #eaeaea;
+}
+
+header .admin a {
+    color: #000;
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
 }
 
 footer {
@@ -67,6 +103,22 @@ section .gallery div[class^='date'] .photos {
 
 section .gallery div[class^='date'] .photos a,
 section .gallery div[class^='date'] .photos img {
-    height: 200px;
+    max-width: 100%;
+    max-height: 200px;
     cursor: pointer;
+}
+
+
+@media only screen and (max-width: 550px) {
+    header .content {
+        justify-content: space-evenly;
+    }
+
+    header .admin {
+        position: static;
+    }
+
+    main {
+        padding: 30px 15px;
+    }
 }

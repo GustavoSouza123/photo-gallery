@@ -11,7 +11,10 @@
 </head>
 <body>
     <header>
-        <h1>My Photo Gallery</h1>
+        <div class="content">
+            <h1>My Photo Gallery</h1>
+            <div class="admin"><a href="admin/">Admin</a></div>
+        </div>
     </header>
 
     <main>
