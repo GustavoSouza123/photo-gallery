@@ -5,6 +5,7 @@
     if(isset($_GET['logout'])) {
         unset($_SESSION['gallery-username']);
         unset($_SESSION['gallery-password']);
+        header('Location: .');
     }
 
     // login verification
@@ -71,6 +72,9 @@
             <input type="text" name="username" placeholder="username" />
             <input type="password" name="password" placeholder="password" />
             <input type="submit" name="login" value="Login" />
+            <div class="links">
+                <a href="../">Photo gallery</a>
+            </div>
         </form>
     </div>
 
@@ -87,7 +91,7 @@
             <input type="file" name="photo" id="photo" accept=".jpg, .jpeg, .png" />
         </div>
         <div class="links">
-            <a href="../">Back to photo gallery</a>
+            <a href="../">Photo gallery</a>
             <a href="?logout">Logout</a>
         </div>
     </div>

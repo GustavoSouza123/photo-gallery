@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -18,10 +19,6 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-header {
-    border-bottom: 1px solid #eee;
 }
 
 header .content {
@@ -67,7 +64,6 @@ header .admin a {
 
 footer {
     font-size: 14px;
-    border-top: 1px solid #eee;
 }
 
 
