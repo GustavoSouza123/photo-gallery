@@ -1,6 +1,13 @@
 <?php
     require '../config/config.php';    
 
+    // logout
+    if(isset($_GET['logout'])) {
+        unset($_SESSION['gallery-username']);
+        unset($_SESSION['gallery-password']);
+    }
+
+    // login verification
     if(isset($_POST['login'])) {
         if($_POST['username'] != '' && $_POST['password'] != '') {
             $_SESSION['gallery-username'] = $_POST['username'];
@@ -81,7 +88,7 @@
         </div>
         <div class="links">
             <a href="../">Back to photo gallery</a>
-            <a href="">Logout</a>
+            <a href="?logout">Logout</a>
         </div>
     </div>
 

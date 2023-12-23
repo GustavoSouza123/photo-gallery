@@ -133,8 +133,33 @@ tr:hover {
 .admin-panel .links {
     position: absolute;
     bottom: 30px;
+    display: flex;
 }
 
 .admin-panel .links a {
+    display: block;
     margin-right: 20px;
+    padding: 0 15px;
+    height: 40px;
+    background: #eee;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: .2s;
+    color: #000;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin-panel .links a:hover {
+    background: #eaeaea;
+}
+
+
+/* responsiveness */
+@media only screen and (max-width: 550px) {
+    .admin-panel {
+        padding: 30px 15px;
+    }
 }
